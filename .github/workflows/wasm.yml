@@ -17,4 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build wasm
-      run: bash build_wasm.sh
+      run: |
+        rustup target add wasm32-unknown-unknown
+        cargo install wasm-pack
+        bash build_wasm.sh
